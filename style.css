@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+section header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  position: relative;
+  max-width: 200px;
+}
+
+header i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+section .navigation {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+section .navigation li {
+  position: relative;
+  list-style: none;
+}
+
+section .navigation li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+section .navigation li.active a,
+section .navigation li.active a:hover {
+  background-color: #f00;
+  color: #fff;
+}
+
+section .navigation li a:hover {
+  color: #f00;
+}
+
+section .img-scroll {
+  position: absolute;
+  left: 0;
+  padding: 60px 0;
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+}
+
+section .img-scroll div {
+  display: flex;
+  animation: animate 40s linear infinite;
+  animation-delay: -40s;
+}
+
+section .img-scroll div:nth-child(2) {
+  animation: animate2 40s linear infinite;
+  animation-delay: -20s;
+}
+
+section .img-scroll:hover div,
+section .img-scroll:hover div:nth-child(2) {
+  animation-play-state: paused;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+section .img-scroll div img {
+  margin: 0 25px;
+  max-width: 200px;
+  max-height: 200px;
+  border: 10px solid transparent;
+  transition: 0.25s;
+}
+
+section .img-scroll div img:hover {
+  border: 10px solid #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+section .img-scroll:hover div img {
+  opacity: 0.05;
+  filter: blur(5px);
+}
+
+section .img-scroll div img:hover {
+  opacity: 1;
+  filter: blur(0px);
+}
